@@ -6,6 +6,14 @@
 
 #define G 10
 
+// --------Print list for debugging --------
+void print_list(int a[], int s)
+{
+    for (int i=0; i<s; ++i)
+        printf("%d --> %d\n", i, a[i]);    
+}
+
+//-------- Quicksort and Helper Functions --------
 void swap(int * x, int * y) 
 {
     int temp = *x;
@@ -38,7 +46,9 @@ void qs(int ar[], int left, int right)
         qs(ar, p+1, right);
     }
 }
-
+//-------------------------------------------
+//
+//-------- Delete element from array; Select Function ---------
 void delete(int index, int a[], int *c)
 {
     for (int i=index; i<(*c)-1; ++i)
@@ -68,19 +78,11 @@ void Select(int ar[], int *siz, int can[], int *coun)
             qs(can, 0, (*coun)-1);
     }
 }
-
-void print_list(int a[], int s)
-{
-    for (int i=0; i<s; ++)
-        printf("%d --> %d\n", i, a[i]);    
-}
-
+//-------------------------------------------------------------
+//
+// Constant G is the number of groups divided 
 int doalg(int n, int k, int Best[])
 {
-    int t[5] = {1,2,3,4,5}; int s = 5;
-    delete(4, t, &s);
-    print_list(t, 4);
-    
 
     int arr[G][n/G], cand[G][n/G];
     int size[G], count[G];
